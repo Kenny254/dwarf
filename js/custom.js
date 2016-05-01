@@ -1,0 +1,1 @@
+var ref = new Firebase("https://dwarf.firebaseio.com");

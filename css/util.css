@@ -1,0 +1,96 @@
+input.ng-valid.ng-dirty,
+select.ng-valid.ng-dirty,
+textarea.ng-valid.ng-dirty {
+	border-color: #5cb85c;
+}
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+	border-color: #d9534f;
+}
+
+.img-thumb {
+	width: 100%;
+	background-repeat: no-repeat;
+}
+
+.img-thumb.contain {
+	background-position: center center;
+	background-size: contain;
+}
+
+.img-thumb.cover {
+	background-position: center center;
+	background-size: cover;
+}
+
+.splash {
+	display: none;
+}
+
+[ng-cloak].splash {
+	display: block !important;
+}
+		
+.splash {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height:100%;
+	width:100%;
+	background: white;
+	z-index: 9999;
+}
+
+.splash p {
+	text-align: center;
+	font-size: 2em;
+	color: gray;
+	position: absolute;
+	top: 35%;
+	width:100%;
+}
+
+.splash img {
+  width: 32px;
+  height: 32px;
+}
+
+.container-fixed {
+	position: fixed;
+	top: 60px;
+	right: 20px;
+	width: 280px;
+	margin-left: 20px;
+	z-index: 9999;
+}
+
+.container-fixed-bottom {
+	position: fixed;
+	bottom: 15px;
+	right: 0px;
+	z-index: 9999;
+}
+
+@media screen and (max-width: 320px) {
+	.alert-fixed {
+    	width: 80vw;
+	}
+}
+
+.fa-circle-o:before {
+  content: "\f10c";
+}
+.fa-circle:before {
+  content: "\f111";
+}
+.fa-spinner:before {
+  content: "\f110";
+}
+.fa-gear:before,
+.fa-cog:before {
+  content: "\f013";
+}
+.fa-refresh:before {
+  content: "\f021";
+}
