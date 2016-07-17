@@ -1,0 +1,19 @@
+{
+  "name": "dwarf",
+  "description": "Simple HTML5 Content Management System (CMS) using AngularJS and Firebase.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/bonfimtm/dwarf#readme",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "angular-loader": "~1.5.0",
+    "angular-mocks": "~1.5.0",
+    "html5-boilerplate": "^5.3.0",
+    "bootstrap": "~3.3.0",
+    "firebase": "~3.0.0",
+    "angularfire": "~2.0.0",
+    "jquery": "~1.11.0"
+  }
+}

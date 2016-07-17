@@ -1,0 +1,53 @@
+<style type="text/css">
+  body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+  }
+</style>
+
+<div class="container">
+  
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        
+        <form class="form-signin" novalidate name="loginForm" ng-submit="submitLogin()">
+          <h2 class="form-signin-heading">Login</h2>
+          
+          <label for="inputEmail" class="sr-only">E-mail</label>
+          <input type="email" id="inputEmail" class="form-control"
+                  placeholder="Email" required autofocus
+                  name="email" ng-model="email">
+          
+          <label for="inputPassword" class="sr-only">Senha</label>
+          <input type="password" id="inputPassword" class="form-control"
+                  placeholder="Senha" required
+                  name="password" ng-model="password">
+          
+          <button id="signinBtn" class="btn btn-lg btn-primary btn-block"
+                    type="submit" ng-disabled="loginForm.$invalid">
+            <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i> Entrar
+          </button>
+        </form>
+        
+        <br>
+        <form novalidate name="passwdResetForm" ng-submit="resetPassword()">
+          <a role="button" data-toggle="collapse" data-target="#collapsePasswdReset" aria-expanded="false" aria-controls="collapsePasswdReset">
+            Esqueci minha senha :o
+          </a>
+          <div class="collapse" id="collapsePasswdReset">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="E-mail" ng-model="resetEmail" required>
+              <span class="input-group-btn">
+                <button id="passwdResetBtn" class="btn btn-default" type="submit" ng-disabled="passwdResetForm.$invalid">
+                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+
+</div>

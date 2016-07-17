@@ -21,9 +21,8 @@ function errmsg(msg) {
     $(".alert-danger .message-content").append(msg + "<br>");
 }
 
-var clsmsg = function() {
-	var $allAlerts = $(".alert-success .message-content, .alert-info .message-content, "
-	    + ".alert-warning .message-content, .alert-danger .message-content");
+function clsmsg() {
+	var $allAlerts = $(".alert-success .message-content, .alert-info .message-content, .alert-warning .message-content, .alert-danger .message-content");
     $allAlerts.html("");
     $allAlerts.hide(500);
 }
