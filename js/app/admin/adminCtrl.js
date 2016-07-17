@@ -1,24 +1,26 @@
-controllers.controller('AdminCtrl', ['$scope', '$routeParams', "$firebaseAuth", "$firebaseArray", "currentAuth",
-	function($scope, $routeParams, $firebaseAuth, $firebaseArray, currentAuth) {
-		
-		// currentAuth (provided by resolve) will contain the
-  		// authenticated user or null if not logged in
+(function() {
+	angular.module('app').controller('AdminCtrl', ['$scope', '$routeParams', "$firebaseAuth", "$firebaseArray", "currentAuth",
+		function($scope, $routeParams, $firebaseAuth, $firebaseArray, currentAuth) {
 
-		$scope.path = "/admin";
-		
-		// ====================================================================================================
-		// ====================================================================================================
+			// currentAuth (provided by resolve) will contain the
+			// authenticated user or null if not logged in
 
-		$scope.init = function() {
-		};
+			$scope.path = "/admin";
 
-		$scope.isAuth = function() {
-			return typeof currentAuth !== "undefined" && currentAuth !== null;
-		};
+			// ====================================================================================================
+			// ====================================================================================================
 
-		// ====================================================================================================
-		// ====================================================================================================
+			$scope.init = function() {};
 
-		$scope.init();
+			$scope.isAuth = function() {
+				return typeof currentAuth !== "undefined" && currentAuth !== null;
+			};
 
-	}]);
+			// ====================================================================================================
+			// ====================================================================================================
+
+			$scope.init();
+
+		}
+	]);
+})();
