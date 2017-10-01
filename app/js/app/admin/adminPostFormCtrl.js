@@ -86,7 +86,6 @@
 					// Create
 					$scope.post.urlAddress = slug($scope.post.title.toLowerCase());
 					$scope.post.createdAt = now;
-					$scope.post.published = false;
 					beginc($("#submitPostBtn"));
 					ref.child("posts").push($scope.post, function(error) {
 						endc($("#submitPostBtn"));
