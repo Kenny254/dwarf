@@ -9,7 +9,7 @@
 
 			$scope.init = function() {
 				if ($routeParams.postUrlAddress) {
-					$scope.posts = $firebaseArray(ref.child('posts').orderByChild("urlAddress").equalTo($routeParams.postUrlAddress).limitToLast(1));
+					$scope.posts = $firebaseArray(ref.child('dwarf').child('posts').orderByChild("urlAddress").equalTo($routeParams.postUrlAddress).limitToLast(1));
 
 					beginl($("#homePostLoading"), $("#homePost"));
 					$scope.posts.$loaded(

@@ -12,7 +12,7 @@
 				$scope.initFileUpload();
 
 				if ($routeParams.postId) {
-					$scope.post = $firebaseObject(ref.child('posts').child($routeParams.postId));
+					$scope.post = $firebaseObject(ref.child('dwarf').child('posts').child($routeParams.postId));
 
 					$scope.post.$loaded(
 						function(post) {
@@ -87,7 +87,7 @@
 					$scope.post.urlAddress = slug($scope.post.title.toLowerCase());
 					$scope.post.createdAt = now;
 					beginc($("#submitPostBtn"));
-					ref.child("posts").push($scope.post, function(error) {
+					ref.child("dwarf").child("posts").push($scope.post, function(error) {
 						endc($("#submitPostBtn"));
 						if (error) {
 							console.error(error);
@@ -116,7 +116,7 @@
 						var filePayload = e.target.result;
 						beginl();
 						// Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-						var imageRef = ref.child("images").push();
+						var imageRef = ref.child("dwarf").child("images").push();
 						console.log(f);
 						imageRef.set({
 							lastModified: f.lastModified,

@@ -1,6 +1,6 @@
-/*! dwarf - v0.1.0 - 2016-07-17
+/*! dwarf - v0.1.0 - 2017-10-21
 * https://github.com/bonfimtm/dwarf#readme
-* Copyright (c) 2016 Thiago Bonfim; Licensed GNU */
+* Copyright (c) 2017 Thiago Bonfim; Licensed GNU */
 
 
 function scsmsg(msg) {
@@ -187,7 +187,7 @@ function endc($elm) {
 			};
 
 			$scope.logout = function() {
-				$scope.auth.$unauth();
+				$scope.auth.$signOut();
 			};
 
 			// ====================================================================================================
@@ -213,7 +213,7 @@ function endc($elm) {
 				$scope.initFileUpload();
 
 				if ($routeParams.postId) {
-					$scope.post = $firebaseObject(ref.child('posts').child($routeParams.postId));
+					$scope.post = $firebaseObject(ref.child('dwarf').child('posts').child($routeParams.postId));
 
 					$scope.post.$loaded(
 						function(post) {
@@ -287,9 +287,8 @@ function endc($elm) {
 					// Create
 					$scope.post.urlAddress = slug($scope.post.title.toLowerCase());
 					$scope.post.createdAt = now;
-					$scope.post.published = false;
 					beginc($("#submitPostBtn"));
-					ref.child("posts").push($scope.post, function(error) {
+					ref.child("dwarf").child("posts").push($scope.post, function(error) {
 						endc($("#submitPostBtn"));
 						if (error) {
 							console.error(error);
@@ -318,7 +317,7 @@ function endc($elm) {
 						var filePayload = e.target.result;
 						beginl();
 						// Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-						var imageRef = ref.child("images").push();
+						var imageRef = ref.child("dwarf").child("images").push();
 						console.log(f);
 						imageRef.set({
 							lastModified: f.lastModified,
@@ -353,7 +352,7 @@ function endc($elm) {
 		function($scope, $routeParams, $firebaseAuth, $firebaseArray) {
 
 			$scope.path = "/admin/posts";
-			$scope.posts = $firebaseArray(ref.child("posts"));
+			$scope.posts = $firebaseArray(ref.child("dwarf").child("posts"));
 
 			beginl($("#adminPostListLoading"), $("#adminPostList"));
 			$scope.posts.$loaded(
@@ -521,7 +520,7 @@ function endc($elm) {
 		function($scope, $routeParams, $firebaseAuth, $firebaseArray, ImageService) {
 
 			$scope.path = "/";
-			$scope.posts = $firebaseArray(ref.child("posts").limitToLast(10).orderByChild('updatedAt'));
+			$scope.posts = $firebaseArray(ref.child("dwarf").child("posts").limitToLast(10).orderByChild('updatedAt'));
 
 			// ====================================================================================================
 			// ====================================================================================================
@@ -589,7 +588,7 @@ function endc($elm) {
 
 			$scope.init = function() {
 				if ($routeParams.postUrlAddress) {
-					$scope.posts = $firebaseArray(ref.child('posts').orderByChild("urlAddress").equalTo($routeParams.postUrlAddress).limitToLast(1));
+					$scope.posts = $firebaseArray(ref.child('dwarf').child('posts').orderByChild("urlAddress").equalTo($routeParams.postUrlAddress).limitToLast(1));
 
 					beginl($("#homePostLoading"), $("#homePost"));
 					$scope.posts.$loaded(
@@ -728,7 +727,7 @@ function endc($elm) {
         imageService.fetchImage = function(id, callback) {
             if (typeof id !== "undefined") {
                 // A hash was passed in, so let's retrieve and render it.
-                ref.child("images").child(id).once('value', function(snap) {
+                ref.child("dwarf").child("images").child(id).once('value', function(snap) {
                     var image = snap.val();
                     if (image.data != null) {
                         callback(image);

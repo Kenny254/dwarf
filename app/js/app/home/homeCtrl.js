@@ -3,7 +3,7 @@
 		function($scope, $routeParams, $firebaseAuth, $firebaseArray, ImageService) {
 
 			$scope.path = "/";
-			$scope.posts = $firebaseArray(ref.child("posts").limitToLast(10).orderByChild('updatedAt'));
+			$scope.posts = $firebaseArray(ref.child("dwarf").child("posts").limitToLast(10).orderByChild('updatedAt'));
 
 			// ====================================================================================================
 			// ====================================================================================================

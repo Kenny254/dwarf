@@ -3,7 +3,7 @@
 		function($scope, $routeParams, $firebaseAuth, $firebaseArray) {
 
 			$scope.path = "/admin/posts";
-			$scope.posts = $firebaseArray(ref.child("posts"));
+			$scope.posts = $firebaseArray(ref.child("dwarf").child("posts"));
 
 			beginl($("#adminPostListLoading"), $("#adminPostList"));
 			$scope.posts.$loaded(

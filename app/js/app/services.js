@@ -30,7 +30,7 @@
         imageService.fetchImage = function(id, callback) {
             if (typeof id !== "undefined") {
                 // A hash was passed in, so let's retrieve and render it.
-                ref.child("images").child(id).once('value', function(snap) {
+                ref.child("dwarf").child("images").child(id).once('value', function(snap) {
                     var image = snap.val();
                     if (image.data != null) {
                         callback(image);
